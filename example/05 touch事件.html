@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: green;
+    }
+    </style>
+</head>
+<body>
+    <div class="box" id="box"></div>
+<script>
+// 在pc端，我们使用鼠标事件：click，mousemove, mouseenter, mouseleave, mouseover, mouseout
+// 在移动端，我们使用手指事件： touchstart, touchend, touchmove, touchcancel
+var box = document.getElementById('box');
+var time, time2;
+// 触发顺序： 手指按下， （手指移动）， 手指抬起， click
+// 触碰事件
+// 手指按下
+box.addEventListener('touchstart', function(e) {
+    // 记录时间
+    time = Date.now();
+    console.log('touch start', e);
+})
+// 手指抬起
+box.addEventListener('touchend', function(e) {
+    time2 = Date.now(); 
+    console.log('touch end', e);
+})
+// 手指移动
+box.addEventListener('touchmove', function(e) {
+    console.log('touch move', e);
+})
+// 取消触碰
+box.addEventListener('touchcancel', function(e) {
+    
+    console.log('touch cancel', e);
+})
+box.addEventListener('click', function(e) {
+    console.log('click', Date.now() - time, Date.now() - time2, e);
+})
+</script>
+</body>
+</html>

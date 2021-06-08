@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="demo"></div>
+<!-- 引入zepto -->
+<script src="./lib/zepto.js"></script>
+<!-- 需要什么功能。引入什么模块 -->
+<script src="./lib/event.js"></script>
+<!-- 动画 -->
+<script src="./lib/fx.js"></script>
+<script src="./lib/fx_methods.js"></script>
+<!-- touch模块 -->
+<script src="./lib/touch.js"></script>
+<script>
+// jQuery如何使用，zepto就如何使用
+// 获取元素，设置样式
+$('.demo')
+    .css({
+        width: 200,
+        height: 200,
+        background: 'green',
+        // position: 'relative'
+    })
+    // 绑定事件
+    // .on('touchstart', function() {
+    //     console.log('touch start');
+    //     // 让元素移动
+    //     // $('.demo').animate({
+    //     //     // left: 200
+    //     //     transform: 'translate(200px)'
+    //     // }, 2000)
+    //     // $('.demo').hide(1000)
+    // })
+// 移动端事件： touchstart, touchend, touchmove, touchcancel
+// 提供了swipe事件； swipe, swipeLeft, swipeUp, swipeRight, swipeDown, tap, langTap, doubleTap, singleTap
+$('.demo')
+    // 轻拍
+    // .on('tap', function() {
+    //     console.log('tap');
+    // })
+    .on('touchstart', function() {
+        console.log('touch start');
+    })
+    .on('touchend', function() {
+        console.log('touch end');
+    })
+    .on('touchmove', function() {
+        console.log('touch move');
+    })
+    .tap(function() {
+        console.log('tap');
+    })
+    // 长按
+    .longTap(function() {
+        console.log('longTap');
+    })
+    // 轻拍一次
+    .singleTap(function() {
+        console.log('singleTap');
+    })
+    // 轻拍两次
+    .doubleTap(function() {
+        console.log('doubleTap');
+    })
+    // 滑动
+    .swipe(function() {
+        console.log('swipe');
+    })
+    // 左滑
+    .swipeLeft(function() {
+        console.log('swipeLeft');
+    })
+    // 右滑
+    .swipeRight(function() {
+        console.log('swipeRight');
+    })
+    // 上滑
+    .swipeUp(function() {
+        console.log('swipeUp');
+    })
+    // 下滑
+    .swipeDown(function() {
+        console.log('swipeDown');
+    })
+</script>
+</body>
+</html>

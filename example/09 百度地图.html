@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            width: 1000px;
+            height: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=6V1tvkoUsxWkGfFVPQfxeyPsRmV2REYd"></script>
+    <script>
+        // 百度地图API功能
+        var map = new BMap.Map("app");            // 创建Map实例
+        map.centerAndZoom(new BMap.Point(116.4035,39.915),8);  //初始化时，即可设置中心点和地图缩放级别。
+        map.enableScrollWheelZoom(true);
+        map.disableDragging();     //禁止拖拽
+        setTimeout(function(){
+        map.enableDragging();   //两秒后开启拖拽
+        //map.enableInertialDragging();   //两秒后开启惯性拖拽
+        }, 2000);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #box1 {
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        position: relative;
+        left: 0;
+        transition: all 1s;
+    }
+    #box1.move {
+        left: 1000px;
+    }
+    #box2 {
+        width: 200px;
+        height: 200px;
+        background-color: purple;
+    }
+    #box2.move {
+        animation: move 1s forwards;
+    }
+    #box2.move-reverse {
+        /* animation: move 1s reverse forwards; */
+        animation: move-reverse 1s forwards;
+    }
+    @keyframes move {
+        from {
+            transform: translate(0);
+        }
+        to {
+            transform: translate(1000px);
+        }
+    }
+    @keyframes move-reverse {
+        from {
+            transform: translate(1000px);
+        }
+        to {
+            transform: translate(0);
+        }
+    }
+    </style>
+</head>
+<body>
+    <button id="btn1">过渡</button>
+    <button id="btn2">动画</button>
+    <hr>
+    <div id="box1"></div>
+    <hr>
+    <div id="box2"></div>
+<script>
+/* 点击过渡按钮，让box1移动 */
+btn1.addEventListener('click', function() {
+    // 切换类
+    box1.className = box1.className ? '' : 'move'; 
+})
+// 监听过渡事件
+// 过渡开始
+box1.addEventListener('transitionstart', function() {
+    console.log('transition start');
+})
+// 过渡结束
+box1.addEventListener('transitionend', function() {
+    console.log('transition end');
+})
+btn2.addEventListener('click', function() {
+    // 切换类
+    box2.className = box2.className === 'move' ? 'move-reverse' : 'move';
+})
+// 动画开始
+box2.addEventListener('animationstart', function() {
+    console.log('animation start');
+})
+// 动画结束
+box2.addEventListener('animationend', function() {
+    console.log('animation end');
+})
+</script>
+</body>
+</html>
